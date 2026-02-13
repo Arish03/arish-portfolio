@@ -3,6 +3,7 @@
 import { TypeAnimation } from "react-type-animation";
 import PageWrapper from "@/components/PageWrapper";
 import Link from "next/link";
+//import EducationTimeline from "@/components/EducationTimeline";
 
 export default function HomePage() {
   return (
@@ -59,8 +60,10 @@ export default function HomePage() {
             Resume
           </Link>
         </div>
-
+            
       </section>
+       {/* EDUCATION TIMELINE 👇 */}
+      
     </PageWrapper>
   );
 }
