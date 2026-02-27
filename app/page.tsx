@@ -37,9 +37,7 @@ export default function HomePage() {
 
         {/* Description */}
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-          Frontend-focused Software Engineer 1 Building Scalable, Performant, and 
-          visually refined web applications using React, Next.js, Tailwind CSS, with 
-          Hands-on experience in Azure IoT, n8n Automation, UI/UX, and Digital marketing.
+          Frontend-focused Software Engineer 1 skilled in React, Next.js, Tailwind CSS, Azure IoT, n8n automation, and UI/UX
         </p>
 
         {/* Actions */}

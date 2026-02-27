@@ -3,20 +3,9 @@
 import PageWrapper from "@/components/PageWrapper";
 import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 export default function ContactPage() {
-  const [loading, setLoading] = useState(false);
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setLoading(true);
-
-    setTimeout(() => {
-      alert("Message sent (demo)");
-      setLoading(false);
-    }, 1000);
-  }
+  // Form handler removed; contact form no longer present
 
   return (
     <PageWrapper>
@@ -80,7 +69,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Contact Form + FAQ */}
+      {/* Contact Details + FAQ */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -89,44 +78,9 @@ export default function ContactPage() {
       >
         <h2 className="text-2xl font-bold">Contact Me</h2>
         <p className="mt-2 text-muted-foreground">
-          Tell me about your project or ask a question.
+          Feel free to reach out via the details above; the form has been
+          removed.
         </p>
-
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-          <input
-            type="text"
-            placeholder="Your name"
-            required
-            className="w-full rounded-lg border px-4 py-3 bg-transparent
-                       text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-
-          <input
-            type="email"
-            placeholder="Your email"
-            required
-            className="w-full rounded-lg border px-4 py-3 bg-transparent
-                       text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-
-          <textarea
-            rows={4}
-            placeholder="Your message"
-            required
-            className="w-full rounded-lg border px-4 py-3 bg-transparent
-                       text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="rounded-lg bg-black text-white dark:bg-white dark:text-black
-                       px-6 py-3 text-sm font-medium transition hover:opacity-90"
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-        </form>
 
         {/* FAQ */}
         <div className="mt-10">

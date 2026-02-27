@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import PageWrapper from "@/components/PageWrapper";
 import PageHeader from "@/components/PageHeader";
 import Image from "next/image";
@@ -7,6 +8,7 @@ import { motion } from "framer-motion";
 import { BookOpen, Music, Film } from "lucide-react";
 
 export default function AboutPage() {
+  const [imgError, setImgError] = useState(false);
   return (
     <PageWrapper>
       {/* Centered Header */}
@@ -26,22 +28,33 @@ export default function AboutPage() {
         {/* Profile Card */}
         <div className="glass p-8 md:col-span-1">
           <div className="flex flex-col items-center text-center">
-            <div className="relative h-36 w-36 overflow-hidden rounded-2xl border border-white/20">
-              <Image
-                src="/profile.jpg"
-                alt="Arish Srinivasan"
-                fill
-                className="object-cover"
-                priority
-              />
+            <div className="relative w-[8cm] h-[12cm] max-w-full overflow-hidden rounded-2xl border border-white/10 shadow-lg ring-1 ring-white/6">
+              {!imgError ? (
+                <Image
+                  src="/profile.jpg"
+                  alt="Arish Srinivasan"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 8cm"
+                  className="object-cover"
+                  onError={() => setImgError(true)}
+                />
+              ) : (
+                <div className="flex items-center justify-center w-full h-full bg-slate-100 text-slate-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-80">
+                    <rect x="2" y="2" width="20" height="20" rx="4" ry="4" />
+                    <path d="M8 14s1.5-2 4-2 4 2 4 2" />
+                    <circle cx="12" cy="9" r="2" />
+                  </svg>
+                </div>
+              )}
             </div>
 
-            <h2 className="mt-4 text-xl font-semibold">
+            <h2 className="mt-4 text-2xl font-semibold tracking-tight">
               Arish Srinivasan
             </h2>
 
             <p className="mt-1 text-sm text-muted-foreground">
-              Software Engineer 
+              Software Engineer — Level 1
             </p>
           </div>
         </div>
@@ -50,22 +63,25 @@ export default function AboutPage() {
         <div className="md:col-span-2 space-y-6">
           {/* Intro */}
           <div className="glass p-6">
-            <p className="text-muted-foreground leading-relaxed">
-            Software Engineer – 1
-            Software Engineer (Level 1) with a strong frontend focus, building scalable, performant, and visually refined web applications using React, Next.js, and Tailwind CSS. Hands-on experience in Azure IoT solutions, including device-to-cloud communication, real-time dashboards, and MQTT-based data flows.
-            Skilled in n8n workflow automation for integrating APIs, automating business processes, and reducing manual operations. Passionate about UI/UX design, crafting intuitive interfaces with a strong emphasis on usability, accessibility, and modern design systems.
-            Additionally experienced in digital marketing fundamentals, including landing page optimization, performance tracking, and user-engagement strategies to support product growth. A fast learner who collaborates effectively with cross-functional teams and continuously adapts to new technologies to deliver impactful software solutions.
+            <h3 className="text-lg font-semibold mb-3 flex items-center">
+              <span className="mr-2 text-xl">👋</span>
+              About
+            </h3>
+            <p className="text-muted-foreground leading-relaxed text-justify">
+            Software Engineer 1 specializing in modern frontend development using React, Next.js, and Tailwind CSS to build scalable, performant, and visually refined web applications. Experienced in Azure IoT ecosystems, including device-to-cloud communication, real-time dashboard development, and MQTT-based data pipelines. Proficient in n8n workflow automation, integrating APIs and automating processes to eliminate manual effort.
+            Passionate about UI/UX design, creating intuitive, accessible, and user-centric interfaces backed by strong design systems. Also knowledgeable in digital marketing fundamentals, including landing page optimization, performance tracking, and user-engagement strategies that support product growth.
+            A fast learner who collaborates effectively across teams and quickly adapts to new technologies to deliver impactful software solutions.
             </p>
           </div>
 
           {/* Experience */}
           <div className="glass p-6">
-            <p className="text-muted-foreground leading-relaxed">
-              I currently work at Lansub Technologies, where I build and maintain
-              production-ready web applications, develop reusable UI components,
-              and integrate APIs and automation workflows using tools like n8n.
-              My focus is on writing clean, scalable code and delivering
-              real-world solutions.
+            <h3 className="text-lg font-semibold mb-3 flex items-center">
+              <span className="mr-2 text-xl">💼</span>
+              Experience
+            </h3>
+            <p className="text-muted-foreground leading-relaxed text-justify">
+              At Lansub Technologies, I develop and maintain production-ready web apps, reusable UI components, and automated API workflows using n8n. I focus on clean, scalable engineering and delivering solutions that directly impact real-world operations, including IoT and dashboard systems.
             </p>
           </div>
 
@@ -90,11 +106,12 @@ export default function AboutPage() {
             </h3>
             <ul className="space-y-2">
               {[
-                "Full-Stack Web Development",
-                "AI-Powered Applications",
-                "UI / UX Design",
-                "Responsive Web Design",
-                "Automation using n8n",
+                "Frontend Engineering",
+                "Full-Stack Development",
+                "IoT-Driven Web Applications",
+                "UI / UX & Interaction Design",
+                "Automation Workflows with n8n",
+                "AI-Powered Application Development",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-muted-foreground">
                   <span className="h-2 w-2 rounded-full bg-primary" />
